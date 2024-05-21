@@ -1,0 +1,17 @@
+{% extends 'web/base.html' %}
+
+{% block titulo %} Alquiler de libros {% endblock %} 
+{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+{% block main %} 
+
+<h1>Alquiler de libros</h1>
+
+<form method="POST" action="{% url 'rent' %}">
+    {% csrf_token %}
+    
+    {{form}}
+
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'web/base.html' %}
+
+{% block titulo %} Catálogo {% endblock %} 
+{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+{% block main %} 
+
+<h1>Catálogo de libros</h1>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Año</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>{{libro1.titulo}}</th>
+            <th>{{libro1.año}}</th>
+        </tr>
+
+        <tr>
+            <th>{{libro2.titulo}}</th>
+            <th>{{libro2.año}}</th>
+        </tr>
+    </tbody>
+
+</table>
+
+{% endblock %}
