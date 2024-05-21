@@ -15,11 +15,11 @@ def profile(request, name):
 
 def books(request):
     context={
-        'libro1':{'titulo':'kimetsu no yaiba', 'año':2019},
-        'libro2':{'titulo':'hunterxhunter','año':2011}
+        'libro1':{'titulo':'kimetsu no yaiba', 'autor': 'aaa', 'año':2019},
+        'libro2':{'titulo':'hunterxhunter', 'autor': 'aaa', 'año':2011}
     }
 
-    return render(request, 'web/books.html', context)
+    return render(request, 'web/books.html', {'books':context})
 
 def rent(request):
     context={}

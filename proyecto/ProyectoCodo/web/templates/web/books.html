@@ -11,20 +11,19 @@
     <thead>
         <tr>
             <th>Titulo</th>
-            <th>Año</th>
+            <th>Autor</th>
+            <th>Año de publicación</th>
         </tr>
     </thead>
 
     <tbody>
+        {% for key, book_info in books.items %}
         <tr>
-            <th>{{libro1.titulo}}</th>
-            <th>{{libro1.año}}</th>
+            <th>{{book_info.titulo}}</th>
+            <th>{{book_info.autor}}</th>
+            <th>{{book_info.año}}</th>
         </tr>
-
-        <tr>
-            <th>{{libro2.titulo}}</th>
-            <th>{{libro2.año}}</th>
-        </tr>
+        {% endfor %}
     </tbody>
 
 </table>
