@@ -6,28 +6,39 @@ from django.shortcuts import redirect
 def index(request):
     return render(request, 'web/index.html')
 
-def profile(request, name):
+def entrenador(request, nombre):
     context={
-        'nombre': name
+        'nombre': nombre
     }
 
-    return render(request, 'web/profile.html', context)
+    return render(request, 'web/entrenador.html', context)
 
-def books(request):
+def alumnos(request, nombre):
     context={
-        'libro1':{'titulo':'kimetsu no yaiba', 'autor': 'aaa', 'año':2019},
-        'libro2':{'titulo':'hunterxhunter', 'autor': 'aaa', 'año':2011}
+        'nombre': nombre
     }
 
-    return render(request, 'web/books.html', {'books':context})
+    return render(request, 'web/alumnos.html', context)
 
-def rent(request):
+def disciplinas(request):
+    context={
+        'disciplina1':{'nombre':'Voley', 'dias': 'Lunes, Martes y Viernes', 'horario': '17 hs'},
+        'disciplina2':{'nombre':'Voley', 'dias': 'Martes y Jueves', 'horario': '18 hs'},
+        'disciplina3':{'nombre':'Natación', 'dias': 'Lunes, Martes y Viernes', 'horario': '17 hs'},
+        'disciplina4':{'nombre':'Natación', 'dias': 'Martes y Jueves', 'horario': '18 hs'},
+        'disciplina5':{'nombre':'Básquet', 'dias': 'Lunes, Martes y Viernes', 'horario': '17 hs'},
+        'disciplina6':{'nombre':'Básquet', 'dias': 'Martes y Jueves', 'horario': '18 hs'},
+        }
+
+    return render(request, 'web/disciplinas.html', {'disciplinas':context})
+
+def inscripciones(request):
     context={}
 
     if request.method == "GET":
-        context ['form'] = Alquiler()
+        context ['form'] = Inscripcion()
     else:
-        context ['form'] = Alquiler(request.POST)
+        context ['form'] = Inscripcion(request.POST)
         return redirect('index')
     
-    return render(request, 'web/rent.html', context)
+    return render(request, 'web/inscripciones.html', context)

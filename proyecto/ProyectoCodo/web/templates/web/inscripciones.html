@@ -1,12 +1,12 @@
 {% extends 'web/base.html' %}
 
-{% block titulo %} Alquiler de libros {% endblock %} 
+{% block titulo %} Perfil de alumno {% endblock %} 
 {% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
 {% block main %} 
 
-<h1>Alquiler de libros</h1>
+<h1>Dias y horarios de los deportes</h1>
 
-<form method="POST" action="{% url 'rent' %}">
+<form method="POST" action="{% url 'inscripciones' %}">
     {% csrf_token %}
     
     {{form}}

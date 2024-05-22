@@ -1,0 +1,31 @@
+{% extends 'web/base.html' %}
+
+{% block titulo %} Disciplinas {% endblock %} 
+{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+{% block main %} 
+
+<h1>Lista de días y horarios</h1>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Disciplina/Deporte</th>
+            <th>Días</th>
+            <th>Horario</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for key, disciplinas_info in disciplinas.items %}
+        <tr>
+            <th>{{disciplinas_info.nombre}}</th>
+            <th>{{disciplinas_info.dias}}</th>
+            <th>{{disciplinas_info.horario}}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}
