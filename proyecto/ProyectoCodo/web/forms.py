@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
 class Inscripcion(forms.Form):
 
@@ -8,3 +9,12 @@ class Inscripcion(forms.Form):
     disciplina = forms.CharField(label='Disciplina/Deporte', required=True)
     dia = forms.CharField(label='Días a entrenar', required=True)
     horario = forms.CharField(label='Horario a entrenar', required=True)
+
+    def clean_nombre_apellido(self):
+        if not self.cleaned_data["nombre_apellido"].isalpha():
+            raise ValidationError('El campo solo puede estar compuesto por letras')
+        return self.cleaned_data["nombre_apellido"]
+
+#Clean general
+    #def clean(self):
+        
