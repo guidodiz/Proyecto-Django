@@ -23,15 +23,17 @@ def alumnos(request, nombre):
 
 def disciplinas(request):
     context={
-        'disciplina1':{'nombre':'Voley', 'dias': 'Lunes, Martes y Viernes', 'horario': '17 hs'},
-        'disciplina2':{'nombre':'Voley', 'dias': 'Martes y Jueves', 'horario': '18 hs'},
-        'disciplina3':{'nombre':'Natación', 'dias': 'Lunes, Martes y Viernes', 'horario': '17 hs'},
-        'disciplina4':{'nombre':'Natación', 'dias': 'Martes y Jueves', 'horario': '18 hs'},
-        'disciplina5':{'nombre':'Básquet', 'dias': 'Lunes, Martes y Viernes', 'horario': '17 hs'},
-        'disciplina6':{'nombre':'Básquet', 'dias': 'Martes y Jueves', 'horario': '18 hs'},
-        }
+        'disciplinas': [
+            'Voley',
+            'Básquet', 
+            'Natación',
+            'Fútbol',
+            'Gimnasia',
+            'Atletismo'
+        ]
+    }
 
-    return render(request, 'web/disciplinas.html', {'disciplinas':context})
+    return render(request, 'web/disciplinas.html', context)
 
 def inscripciones(request):
     context={}

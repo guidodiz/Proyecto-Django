@@ -1,10 +1,11 @@
 {% extends 'web/base.html' %}
+{% load static %}
 
 {% block titulo %} Perfil de alumno {% endblock %} 
 {% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
 {% block main %} 
 
-<h1>Dias y horarios de los deportes</h1>
+<h1>Lista de actividades</h1>
 
 <form method="POST" action="{% url 'inscripciones' %}">
     {% csrf_token %}

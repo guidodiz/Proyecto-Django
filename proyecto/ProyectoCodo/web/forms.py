@@ -7,8 +7,6 @@ class Inscripcion(forms.Form):
     dni = forms.IntegerField(label='DNI', required=True)
     email = forms.EmailField(label='Email', required=True)
     disciplina = forms.CharField(label='Disciplina/Deporte', required=True)
-    dia = forms.CharField(label='Días a entrenar', required=True)
-    horario = forms.CharField(label='Horario a entrenar', required=True)
 
     def clean_nombre_apellido(self):
         if not self.cleaned_data["nombre_apellido"].isalpha():
@@ -17,4 +15,3 @@ class Inscripcion(forms.Form):
 
 #Clean general
     #def clean(self):
-        
