@@ -13,14 +13,16 @@
 
         <thead>
             <tr>
-                <th>Actividad</th>
+                <th>Disciplina</th>
+                <th>Turno</th>
             </tr>
         </thead>
 
         <tbody>
-            {% for disciplina in disciplinas %}
+            {% for key, info_disciplina in disciplinas.items %}
             <tr>
-                <th>{{disciplina}}</th>
+                <th>{{info_disciplina.disciplina}}</th>
+                <th>{{info_disciplina.turno}}</th>
             </tr>
             {% endfor %}
         </tbody>
