@@ -1,11 +1,12 @@
 {% extends 'web/base.html' %}
 {% load static %}
 
-{% block titulo %} Perfil de alumno {% endblock %} 
+{% block titulo %} Inscripciones {% endblock %} 
 {% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+
 {% block main %} 
 
-<h1>Lista de actividades</h1>
+<h1>Formulario de inscripción</h1>
 
 <form method="POST" action="{% url 'inscripciones' %}">
     {% csrf_token %}
