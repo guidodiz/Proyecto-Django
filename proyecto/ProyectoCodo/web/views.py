@@ -9,7 +9,13 @@ def index(request):
 
 def entrenador(request, nombre):
     context={
-        'nombre': nombre
+        'nombre': nombre,
+        'cursos': {
+            '1':{'disciplina': 'Natación', 'turno': 'Noche'},
+            '2':{'disciplina': 'Básquet', 'turno': 'Mañana'},
+            '3':{'disciplina': 'Voley', 'turno': 'Tarde'},
+            '4':{'disciplina': 'Básquet', 'turno': 'Mañana'}
+        }
     }
 
     return render(request, 'web/entrenador.html', context)

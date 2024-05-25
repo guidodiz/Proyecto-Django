@@ -8,4 +8,26 @@
 
 <h1>¡Bienvenid@ {{nombre}}!</h1>
 
+<h2>Lista de cursos</h2>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Curso</th>
+            <th>Turno</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for key, info_curso in cursos.items %}
+        <tr>
+            <th>{{ info_curso.disciplina }}</th>
+            <th>{{ info_curso.turno }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
 {% endblock %}
