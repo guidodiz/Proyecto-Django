@@ -18,10 +18,10 @@
         </thead>
 
         <tbody>
-            {% for key, info_disciplina in disciplinas.items %}
+            {% for disciplina in disciplinas %}
             <tr>
-                <th>{{info_disciplina.disciplina}}</th>
-                <th>{{info_disciplina.turno}}</th>
+                <th>{{disciplina.nombre}}</th>
+                <th>{{disciplina.turno}}</th>
             </tr>
             {% endfor %}
         </tbody>

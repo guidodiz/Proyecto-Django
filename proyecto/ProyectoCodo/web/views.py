@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import *
 from django.shortcuts import redirect
 from django.contrib import messages
+from .models import Alumno, Entrenador, Disciplina, Inscripcion
 
 def index(request):
     return render(request, 'web/index.html')
@@ -28,21 +29,13 @@ def alumnos(request, nombre):
     return render(request, 'web/alumnos.html', context)
 
 def disciplinas(request):
-    context={
-        'disciplinas': {
-            '1':{'disciplina': 'Voley', 'turno': 'Mañana'},
-            '2':{'disciplina': 'Voley', 'turno': 'Tarde'}, 
-            '3':{'disciplina': 'Voley', 'turno': 'Noche'},
-            '4':{'disciplina': 'Básquet', 'turno': 'Mañana'},
-            '5':{'disciplina': 'Básquet', 'turno': 'Tarde'},
-            '6':{'disciplina': 'Básquet', 'turno': 'Noche'},
-            '7':{'disciplina': 'Natación', 'turno': 'Mañana'},
-            '8':{'disciplina': 'Natación', 'turno': 'Tarde'},
-            '9':{'disciplina': 'Natación', 'turno': 'Noche'},
-        }
-        }
-    
 
+    disciplinas = Disciplina.objects.all().order_by('nombre')
+    
+    context={
+        'disciplinas': disciplinas
+    }
+    
     return render(request, 'web/disciplinas.html', context)
 
 def inscripciones(request):
