@@ -8,4 +8,5 @@ urlpatterns=[
     path('entrenador/<str:nombre>', views.entrenador, name='entrenador'),
     path('alta_entrenador', views.alta_entrenador, name='alta_entrenador'),
     path('disciplinas', views.disciplinas.as_view(), name='disciplinas'),
+    path('inscripcion', views.inscripcion, name='inscripcion')
 ] 

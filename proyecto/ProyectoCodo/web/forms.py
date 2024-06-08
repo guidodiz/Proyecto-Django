@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import Entrenador
+from .models import Entrenador, Inscripciones
 
 
 class AltaAlumno(forms.Form):
@@ -66,3 +66,11 @@ class AltaEntrenador(forms.ModelForm):
             if nombre.lower() == apellido.lower():
                 raise ValidationError('El nombre y el apellido no pueden ser iguales')
         return cleaned_data
+
+
+
+
+class InscripcionForm(forms.ModelForm):
+    class Meta:
+        model = Inscripciones
+        fields = ['disciplina', 'turno', 'alumno_id']

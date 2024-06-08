@@ -9,10 +9,14 @@ class Persona(models.Model):
         abstract=True
 
 class Alumno(Persona):
-    pass
+    def __str__(self):
+        return f'{self.apellido} {self.nombre}, DNI {self.dni}'
 
 class Entrenador(Persona):
     email = models.EmailField(verbose_name='Email')
+
+    def __str__(self):
+        return f'{self.apellido} {self.nombre}'
 
 class Disciplina(models.Model):
     nombre = models.CharField(max_length=50, verbose_name='Disciplina o actividad')
@@ -25,6 +29,9 @@ class Disciplina(models.Model):
     ]
 
     turno = models.CharField(max_length=10, choices=TURNOS, verbose_name='Turno')
+
+    def __str__(self):
+        return f'{self.nombre} turno {self.turno}'
 
 class Inscripciones(models.Model):
     DISCIPLINAS=[
@@ -43,4 +50,7 @@ class Inscripciones(models.Model):
 
     turno = models.CharField(max_length=10, choices=TURNOS, verbose_name='Turno')
     entrenador_id = models.ForeignKey(Entrenador, on_delete=models.CASCADE, null=True, blank=True)
-    alumno_id = models.ManyToManyField(Alumno)
+    alumno_id = models.ManyToManyField(Alumno, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.disciplina} turno {self.turno} | Entrenador: {self.entrenador_id}'

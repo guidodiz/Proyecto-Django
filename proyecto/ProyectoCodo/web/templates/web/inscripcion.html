@@ -1,0 +1,19 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block titulo %} Inscripcion {% endblock %} 
+{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+
+{% block main %} 
+
+<h1>Formulario de inscripción a las actividades</h1>
+
+<form method="POST" action="{% url 'inscripcion' %}">
+    {% csrf_token %}
+    
+    {{form}}
+
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}

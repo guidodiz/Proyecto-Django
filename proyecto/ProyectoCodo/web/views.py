@@ -81,4 +81,18 @@ class disciplinas(ListView):
     ordering = ['nombre', 'turno']
 
 
-#def inscripciones(request):
+def inscripcion(request):
+    context = {}
+    if request.method == "GET":
+        form = InscripcionForm()
+    else:
+        form = InscripcionForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, '¡Listo! Te inscribiste correctamente')
+            return redirect('index')
+    
+    context['form'] = form
+
+    return render(request, 'web/inscripcion.html', context)
