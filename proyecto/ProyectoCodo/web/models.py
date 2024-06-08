@@ -19,7 +19,6 @@ class Disciplina(models.Model):
     descripcion = models.CharField(max_length=200, verbose_name='Descripción')
 
     TURNOS=[
-        ('Elegir', 'Elegir'),
         ('mañana', 'Mañana'),
         ('tarde', 'Tarde'),
         ('noche', 'Noche'),
@@ -27,9 +26,21 @@ class Disciplina(models.Model):
 
     turno = models.CharField(max_length=10, choices=TURNOS, verbose_name='Turno')
 
-    entrenador_id = models.ForeignKey(Entrenador, on_delete=models.CASCADE, null=True, blank=True)
-    alumno_id = models.ManyToManyField(Alumno, through='Inscripcion')
+class Inscripciones(models.Model):
+    DISCIPLINAS=[
+        ('voley', 'Voley'),
+        ('basquet', 'Básquet'),
+        ('natacion', 'Natación'),
+    ]
 
-class Inscripcion(models.Model):
-    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
-    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)
+    disciplina = models.CharField(max_length=50, choices=DISCIPLINAS, verbose_name='Disciplina')
+
+    TURNOS=[
+        ('mañana', 'Mañana'),
+        ('tarde', 'Tarde'),
+        ('noche', 'Noche'),
+    ]
+
+    turno = models.CharField(max_length=10, choices=TURNOS, verbose_name='Turno')
+    entrenador_id = models.ForeignKey(Entrenador, on_delete=models.CASCADE, null=True, blank=True)
+    alumno_id = models.ManyToManyField(Alumno)

@@ -1,11 +1,33 @@
 {% extends 'web/base.html' %}
 {% load static %}
 
-{% block titulo %} Perfil de alumno {% endblock %} 
-{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+{% block titulo %} Listado de alumnos {% endblock %}
+{% block extra_css %} {% endblock %}
 
-{% block main %} 
+{% block main %}
 
-<h1>¡Bienvenid@ {{nombre}}!</h1>
+    <h1>Listado de alumnos del club</h1>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for alumno in alumnos %}
+            <tr>
+                <th>{{alumno.apellido}}</th>
+                <th>{{alumno.nombre}}</th>
+                <th>{{alumno.dni}}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
 
 {% endblock %}
