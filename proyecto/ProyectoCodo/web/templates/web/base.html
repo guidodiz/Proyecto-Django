@@ -2,27 +2,44 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block titulo %} {% endblock %} </title>
     <link rel="stylesheet" href="{% static 'web/styles/base.css' %}">
+    <link rel="icon" href="{% static 'web/img/logo.png' %}" type="image/x-icon">
+
     {% block extra_css %} {% endblock %}
 </head>
+
 <body>
     <header>
-        
+        <img src="{% static 'web/img/logo.png' %}" alt="Logo del club">
+        <h1>Club Social y Deportivo LAXUS</h1>
+        <img src="{% static 'web/img/logo.png' %}" alt="Logo del club">
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li> |
+            <li><a href="{% url 'alumnos' %}">Alumnos</a></li> |
+            <li><a href="{% url 'alta_alumno' %}">Alta alumno</a></li> |
+            <li><a href="{% url 'alta_entrenador' %}">Alta Entrenador</a></li> |
+            <li><a href="{% url 'disciplinas' %}">Disciplinas y actividades</a></li> |
+            <li><a href="{% url 'inscripcion' %}">Inscripciones</a></li>
+        </ul>
+    </nav>
 
     <section>
         {% if messages %}
-            <ul class="messages">
+        <ul class="messages">
 
-                {% for message in messages %}
-                    <li {% if message.tags %} class="{{messages.tags}}" {% endif %}> {{message}} </li>
-                {% endfor %}
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{messages.tags}}" {% endif %}> {{message}} </li>
+            {% endfor %}
 
-            </ul>
+        </ul>
         {% endif %}
     </section>
 
@@ -30,6 +47,28 @@
 
     <footer>
 
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <p>Dirección: Av. De los Lagos 19, Nordelta</p>
+                <p>Email: clublaxus@gmail.com</p>
+                <p>Teléfono: 1123456789</p>
+            </div>
+
+            <div class="redes">
+                <h3>Seguinos en redes</h3>
+                <a href="https://facebook.com/guidodiz" target="_blank"><img src="{% static 'web/img/fb.png' %}"
+                        alt="Facebook"></a>
+                <a href="https://instagram.com/_guidodiz" target="_blank"><img src="{% static 'web/img/ig.png' %}"
+                        alt="Instagram"></a>
+                <a href="https://twitter.com" target="_blank"><img src="{% static 'web/img/tw.png' %}"
+                        alt="Twitter"></a>
+            </div>
+
+            <div class="derechos">
+                <h4>&copy; 2024 Club Social y Deportivo Laxus. Todos los derechos reservados.</h4>
+            </div>
+
     </footer>
 </body>
+
 </html>
