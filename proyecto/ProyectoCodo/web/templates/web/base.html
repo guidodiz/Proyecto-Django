@@ -7,7 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block titulo %} {% endblock %} </title>
-    <link rel="stylesheet" href="{% static 'web/styles/base.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'web/styles/base2.css' %}">
+
     <link rel="icon" href="{% static 'web/img/logo.png' %}" type="image/x-icon">
 
     {% block extra_css %} {% endblock %}
@@ -33,13 +35,13 @@
 
     <section>
         {% if messages %}
-        <ul class="messages">
+        <div class="messages">
 
             {% for message in messages %}
-            <li {% if message.tags %} class="{{messages.tags}}" {% endif %}> {{message}} </li>
+            <h3 {% if message.tags %} class="{{message.tags}}" {% endif %}">{{message}}</h3>
             {% endfor %}
 
-        </ul>
+        </div>
         {% endif %}
     </section>
 

@@ -1,19 +1,23 @@
 {% extends 'web/base.html' %}
 {% load static %}
 
-{% block titulo %} Alta de alumno {% endblock %} 
-{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+{% block titulo %} Alta de alumno {% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/alta_alumno.css' %}"> {% endblock %}
 
-{% block main %} 
+{% block main %}
 
-<h1>Formulario de inscripción de alumno</h1>
+<main>
 
-<form method="POST" action="{% url 'alta_alumno' %}">
-    {% csrf_token %}
-    
-    {{form}}
+    <form method="POST" action="{% url 'alta_alumno' %}">
+        {% csrf_token %}
 
-    <input type="submit" value="Enviar">
-</form>
+        <h1>Formulario de inscripción de alumno</h1>
+
+        {{form}}
+
+        <input type="submit" value="Enviar">
+    </form>
+</main>
 
 {% endblock %}

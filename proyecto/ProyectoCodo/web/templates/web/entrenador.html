@@ -1,33 +1,36 @@
 {% extends 'web/base.html' %}
 {% load static %}
 
-{% block titulo %} Perfil de entrenador {% endblock %} 
-{% block extra_css %} <link rel="stylesheet" href=""> {% endblock %}
+{% block titulo %} Perfil de entrenador {% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/perfil_entrenador.css'%}"> {% endblock %}
 
-{% block main %} 
+{% block main %}
 
-<h1>¡Bienvenid@ {{nombre}}!</h1>
+<main>
+    <h1>¡Bienvenid@ {{nombre}}!</h1>
 
-<h2>Lista de cursos</h2>
+    <h2>Lista de cursos</h2>
 
-<table>
+    <table>
 
-    <thead>
-        <tr>
-            <th>Curso</th>
-            <th>Turno</th>
-        </tr>
-    </thead>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Turno</th>
+            </tr>
+        </thead>
 
-    <tbody>
-        {% for key, info_curso in cursos.items %}
-        <tr>
-            <th>{{ info_curso.disciplina }}</th>
-            <th>{{ info_curso.turno }}</th>
-        </tr>
-        {% endfor %}
-    </tbody>
+        <tbody>
+            {% for key, info_curso in cursos.items %}
+            <tr>
+                <td>{{ info_curso.disciplina }}</td>
+                <td>{{ info_curso.turno }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
 
-</table>
+    </table>
+</main>
 
 {% endblock %}

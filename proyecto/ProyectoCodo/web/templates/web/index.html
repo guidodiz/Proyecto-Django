@@ -1,17 +1,25 @@
 {% extends 'web/base.html' %}
 {% load static %}
 
-{% block titulo %} Index {% endblock %} 
-{% block extra_css %}  {% endblock %}
+{% block titulo %} Inicio {% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/index.css' %}"> {% endblock %}
 
-{% block main %} 
+{% block main %}
 
-<p>El Club Social y Deportivo Laxus es un vibrante centro comunitario que ofrece una amplia gama de actividades para personas de todas las edades. Situado en el corazón del barrio, nuestro club es un lugar acogedor donde los residentes pueden reunirse, socializar y participar en emocionantes deportes y actividades recreativas.</p>
+<main>
+    <p>El Club Social y Deportivo Laxus es un vibrante centro comunitario que ofrece una amplia gama de actividades para
+        personas de todas las edades. Situado en el corazón del barrio, nuestro club es un lugar acogedor donde los
+        residentes pueden reunirse, socializar y participar en emocionantes deportes y actividades recreativas.</p>
 
-<p>Nuestra instalación cuenta con excelentes instalaciones para voley, básquet y natación, lo que brinda a nuestros miembros la oportunidad de mantenerse activos y saludables mientras disfrutan de su tiempo libre.</p>
+    <p>Nuestra instalación cuenta con excelentes instalaciones para voley, básquet y natación, lo que brinda a nuestros
+        miembros la oportunidad de mantenerse activos y saludables mientras disfrutan de su tiempo libre.</p>
 
-<p>Además de nuestras actividades deportivas, también organizamos eventos sociales y culturales que fomentan la camaradería y el espíritu comunitario. Desde barbacoas familiares hasta noches de cine al aire libre, siempre hay algo emocionante sucediendo en nuestro club.</p>
+    <p>Además de nuestras actividades deportivas, también organizamos eventos sociales y culturales que fomentan la
+        camaradería y el espíritu comunitario. Desde barbacoas familiares hasta noches de cine al aire libre, siempre
+        hay algo emocionante sucediendo en nuestro club.</p>
 
-<p>Unite a nosotros en el Club Social y Deportivo Laxus y sé parte de una comunidad activa y unida!</p>
+    <p>¡Unite a nosotros en el Club Social y Deportivo Laxus y sé parte de una comunidad activa y unida!</p>
+</main>
 
 {% endblock %}

@@ -22,7 +22,7 @@ header img{
 }
 
 nav{
-    height: 60px;
+    height: 40px;
     width: 100%;
 }
 
@@ -39,9 +39,25 @@ nav ul li a{
     text-decoration: none;
 }
 
-nav ul li:hover{
-    scale: 1.1;
-    transition-duration: 0.2s;
+nav ul li {
+    transition: transform 0.2s ease-in-out;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
+}
+
+.messages{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.messages h3.success{
+    background-color: rgba(14, 224, 14, .3);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 footer{
@@ -64,7 +80,10 @@ footer {
     margin-right: 15px;
 }
 
-.redes img:hover{
-    scale: 1.5;
-    transition-duration: 0.2s;
+.redes img {
+    transition: transform 0.2s ease-in-out; 
+}
+
+.redes img:hover {
+    transform: scale(1.5);
 }

@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block titulo %} Listado de alumnos {% endblock %}
-{% block extra_css %} {% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/alumnos.css' %}"> {% endblock %}
 
 {% block main %}
 
+<main>
     <h1>Listado de alumnos del club</h1>
 
     <table>
@@ -21,13 +23,14 @@
         <tbody>
             {% for alumno in alumnos %}
             <tr>
-                <th>{{alumno.apellido}}</th>
-                <th>{{alumno.nombre}}</th>
-                <th>{{alumno.dni}}</th>
+                <td>{{alumno.apellido}}</td>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.dni}}</td>
             </tr>
             {% endfor %}
         </tbody>
 
     </table>
+</main>
 
 {% endblock %}

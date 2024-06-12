@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block titulo %} Disciplinas {% endblock %}
-{% block extra_css %} {% endblock %}
+{% block extra_css %} <link rel="stylesheet" href="{% static 'web/styles/disciplinas.css' %}"> {% endblock %}
 
 {% block main %}
 
+<main>
     <h1>Lista de actividades deportivas</h1>
 
     <table>
@@ -20,12 +21,13 @@
         <tbody>
             {% for disciplina in disciplinas %}
             <tr>
-                <th>{{disciplina.nombre}}</th>
-                <th>{{disciplina.turno}}</th>
+                <td>{{disciplina.nombre}}</td>
+                <td>{{disciplina.turno}}</td>
             </tr>
             {% endfor %}
         </tbody>
 
     </table>
+</main>
 
 {% endblock %}
