@@ -15,11 +15,46 @@ header{
     padding: 40px;
     background: linear-gradient(to bottom, rgb(9, 108, 189), white);
     color: black;
+    position: relative;
 }
 
 header img{
     height: 80px;
 }
+
+.acciones{
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.acciones{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.acciones a{
+    text-decoration: none;
+    color: black;
+}
+
+.login {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.logout {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
 
 nav{
     height: 40px;

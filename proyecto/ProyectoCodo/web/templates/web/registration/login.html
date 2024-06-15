@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="{% static 'web/styles/login.css' %}">
+    <link rel="icon" href="{% static 'web/img/logo.png' %}" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container">
+
+        {% if form.errors %}
+        <p>Tu usuario y contraseña no coinciden. Por favor intentá de nuevo.</p>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+        <p>Tu cuenta no tiene acceso a esta página. Para proseguir, por favor ingresá con una cuenta que tenga acceso.
+        </p>
+        {% else %}
+        <p>Por favor iniciá sesión para poder ver esta página.</p>
+        {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            <h1>Bienvenido al club Laxus</h1>
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Iniciar sesión">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+
+        <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+
+    </div>
+</body>
+
+</html>

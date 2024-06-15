@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block titulo %} {% endblock %} </title>
     
-    <link rel="stylesheet" href="{% static 'web/styles/base2.css' %}">
+    <link rel="stylesheet" href="{% static 'web/styles/base.css' %}">
 
     <link rel="icon" href="{% static 'web/img/logo.png' %}" type="image/x-icon">
 
@@ -20,18 +20,24 @@
         <img src="{% static 'web/img/logo.png' %}" alt="Logo del club">
         <h1>Club Social y Deportivo LAXUS</h1>
         <img src="{% static 'web/img/logo.png' %}" alt="Logo del club">
+        <div class="acciones">
+            {% if not user.is_authenticated %} <a class="login" href="{% url 'login' %}"> Iniciar sesión </a> {% endif %}
+            
+            {% if user.is_authenticated %} <a class="logout" href="{% url 'logout' %}"> Cerrar sesión </a> {% endif %}
+        </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="{% url 'index' %}">Inicio</a></li> |
-            <li><a href="{% url 'alumnos' %}">Alumnos</a></li> |
-            <li><a href="{% url 'alta_alumno' %}">Alta alumno</a></li> |
-            <li><a href="{% url 'alta_entrenador' %}">Alta Entrenador</a></li> |
-            <li><a href="{% url 'disciplinas' %}">Disciplinas y actividades</a></li> |
-            <li><a href="{% url 'inscripcion' %}">Inscripciones</a></li>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            {% if perms.web.view_alumno %} <li><a href="{% url 'alumnos' %}">Alumnos</a></li> {% endif %}
+            {% if perms.web.add_alumno %} <li><a href="{% url 'alta_alumno' %}">Alta alumno</a></li> {% endif %}
+            {% if perms.web.add_entrenador %} <li><a href="{% url 'alta_entrenador' %}">Alta Entrenador</a></li> {% endif %}
+            {% if perms.web.view_disciplina %} <li><a href="{% url 'disciplinas' %}">Disciplinas y actividades</a></li> {% endif %}
+            {% if perms.web.add_inscripcion %} <li><a href="{% url 'inscripcion' %}">Inscripciones</a></li> {% endif %}
         </ul>
     </nav>
+
 
     <section>
         {% if messages %}

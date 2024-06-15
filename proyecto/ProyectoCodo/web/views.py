@@ -5,11 +5,16 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from .models import Alumno, Entrenador, Disciplina, Inscripciones
 from django.views.generic.list import ListView
+from django.contrib.auth import logout
 
 
 def index(request):
     return render(request, 'web/index.html')
 
+def user_logout(request):
+    logout(request)
+
+    return redirect('index')
 
 class alumnos(ListView):
     model = Alumno
