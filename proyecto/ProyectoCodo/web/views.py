@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import Alumno, Entrenador, Disciplina, Inscripciones
 from django.views.generic.list import ListView
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -86,6 +87,7 @@ class disciplinas(ListView):
     ordering = ['nombre', 'turno']
 
 
+#@login_required
 def inscripcion(request):
     context = {}
     if request.method == "GET":
