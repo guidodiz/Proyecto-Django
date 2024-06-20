@@ -24,6 +24,7 @@ class alumnos(ListView):
     ordering = ['apellido']
 
 
+#@login_required
 def alta_alumno(request):
     context={}
 
@@ -63,6 +64,7 @@ def entrenador(request, nombre):
     return render(request, 'web/entrenador.html', context)
 
 
+#@login_required
 def alta_entrenador(request):
     context = {}
     if request.method == "GET":
@@ -87,7 +89,6 @@ class disciplinas(ListView):
     ordering = ['nombre', 'turno']
 
 
-#@login_required
 def inscripcion(request):
     context = {}
     if request.method == "GET":

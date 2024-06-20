@@ -31,6 +31,19 @@ form input{
     border-radius: 4px;
 }
 
+form select{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form select option{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
 form input[type="submit"] {
     width: 20%;
     background-color: rgb(9, 108, 189);
